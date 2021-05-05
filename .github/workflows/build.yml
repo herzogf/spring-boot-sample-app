@@ -31,7 +31,7 @@ jobs:
           distribution: 'adopt'
 
       - name: Build image
-        run: ./mvnw spring-boot:build-image -Dspring-boot.build-image.imageName=$IMAGE_NAME
+        run: mvn spring-boot:build-image -Dspring-boot.build-image.imageName=$IMAGE_NAME
 
       - name: Log into registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
